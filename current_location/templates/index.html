@@ -1,0 +1,59 @@
+{% load static %}
+{% include 'bootstrap.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'current_location/styles.css' %}">
+    <link rel="shortcut icon" href="https://lh3.googleusercontent.com/proxy/qW_69pKQvm2IWuK_7Tg3sOcZ9C1eEiNhN1xtT63iNvNWfxem2dwjWObPYB-PLQZ1D2ajJ4TNs2tLEyi5JfWeFaQqc7nBSa1-bgNW0kbpaqXg3ezNmo0" type="image/x-icon">
+    <title>CURRENT LOCATION</title>
+</head>
+<body>
+    <div class="header">
+        <img src="https://lh3.googleusercontent.com/proxy/qW_69pKQvm2IWuK_7Tg3sOcZ9C1eEiNhN1xtT63iNvNWfxem2dwjWObPYB-PLQZ1D2ajJ4TNs2tLEyi5JfWeFaQqc7nBSa1-bgNW0kbpaqXg3ezNmo0" alt="">
+        <div class="header__right">
+            <h1>Home</h1>
+            <h1>About</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="top">
+            <p>
+                <span class="badge badge-danger">Device IP Address</span>
+               <span class="badge badge-warning">{{data.ip_address}}</span>
+           </p>
+               <h2>My Location</h2>
+               <img src="https://lh3.googleusercontent.com/proxy/qW_69pKQvm2IWuK_7Tg3sOcZ9C1eEiNhN1xtT63iNvNWfxem2dwjWObPYB-PLQZ1D2ajJ4TNs2tLEyi5JfWeFaQqc7nBSa1-bgNW0kbpaqXg3ezNmo0" alt="">
+               <span class="badge badge-secondary">{{data.country}}/{{data.city}} </span>
+            </div>             
+                <hr>
+        <div class="information">
+            <ul class="list-group">
+                <li class="list-group-item">Country <span class="badge badge-primary">{{data.country}}</span></li>
+                <li class="list-group-item">Country Code <span class="badge badge-primary">{{data.country_code}}</span></li>
+                <li class="list-group-item">Continent <span class="badge badge-secondary">{{data.continent}}</span></li>
+                <li class="list-group-item">Continent Code <span class="badge badge-secondary">{{data.continent_code}}</span></li>
+                <li class="list-group-item">City <span class="badge badge-success">{{data.city}}</span></li>
+                <li class="list-group-item">County <span class="badge badge-info">{{data.county}}</span></li>
+                <li class="list-group-item">Region <span class="badge badge-dark">{{data.region}}</span></li>
+                <li class="list-group-item">Region Code <span class="badge badge-dark">{{data.region_code}}</span></li>
+              </ul>
+              <ul class="list-group">
+               <li class="list-group-item">Postal Code <span class="badge badge-dark">{{data.postal_code}}</span></li>
+                <li class="list-group-item">Longitude <span class="badge badge-warning">{{data.longitude}}</span></li>
+                <li class="list-group-item">Latitude <span class="badge badge-warning">{{data.latitude}}</span></li>
+                <li class="list-group-item">Currency <span class="badge badge-success">{{data.currency}}</span></li>
+                <li class="list-group-item">
+                    Languages
+                    <div class="langages">
+                        {% for i in data.languages%}
+                        <span class="badge badge-primary">{{i}}</span>
+                        {% endfor%}
+                    </div>
+                </li>
+              </ul>
+        </div> 
+    </div>
+</body>
+</html>
